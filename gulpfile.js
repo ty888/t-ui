@@ -1,7 +1,7 @@
 var gulp=require('gulp'),
     gulp_less=require('gulp-less'),
     // gulp_connect=require('gulp-connect'),
-    gulp_minify_css=require('gulp-minify-css');
+    gulp_minify_css=require('gulp-minify-css'); // css压缩
     // livereload = require('gulp-livereload'); // 热更新
     browserSync = require('browser-sync').create(); // 热重载
     reload = browserSync.reload;
@@ -13,18 +13,6 @@ gulp.task('less',function () {
         .pipe(gulp.dest('dist/css/'))
         // .pipe(gulp_minify_css()) 压缩css
 });
-
-// 热更新
-// gulp.task('hot', function() {
-//     livereload.listen();
-//     // app/**/*.* 的意思是 app 文件夹下的 任何文件夹 的 任何文件
-//     gulp.watch('dist/*.*', function(event) {
-//         livereload.changed(event.path);
-//     });
-//     // gulp.watch('less/*.*', function(event) {
-//     //     livereload.changed(event.path);
-//     // });
-// });
 
 // 热重载
 gulp.task('server', function() {
