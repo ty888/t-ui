@@ -1,0 +1,63 @@
+/* 初始化 */
+body{
+	background: #fff;
+	font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans G","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+ul,li{list-style: none;margin: 0;padding:0;}
+a,a:link,a:hover{text-decoration: none;}
+*{box-sizing: border-box;}
+
+// 主题色
+@themeColor: #F7523F;
+
+// 导航栏
+.navbar{
+	height: 70px;
+	position: relative;
+	.logo_img{
+		float: left;
+		height: 50px;
+		margin-top: 10px;
+		>img{
+			height: 100%;
+			display: inline-block;
+		}
+	}
+	.navbar-nav{
+		float: right;
+		>li{
+			float: left;
+			>a{
+				display: inline-block;
+				color: #333;
+				line-height: 67px;
+				padding: 0 15px;
+				transition: all .1s;
+				border-top: 3px solid #fff;
+				&:hover{
+					border-top: 3px solid @themeColor;
+					color: @themeColor;
+				}
+			}
+			>a.active{
+				border-top: 3px solid @themeColor;
+				color: @themeColor;
+			}
+		}
+	}
+}
+
+// docs-header
+.docs-header{
+	background-color: @themeColor;
+	padding: 40px 0;
+	color: #fff;
+	h1{
+		font-size: 60px;
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+	p{
+    font-size: 24px
+	}
+}

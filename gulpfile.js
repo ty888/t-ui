@@ -12,18 +12,27 @@ gulp.task('less',function () {
         .pipe(gulp_less())
         .pipe(gulp.dest('dist/css/'))
         // .pipe(gulp_minify_css()) 压缩css
+    gulp.src('less/index.less')
+        .pipe(gulp_less())
+        .pipe(gulp.dest('dist/css/'))
 });
 
 // 热重载
 gulp.task('server', function() {
   browserSync.init({
     server: {
-      baseDir: 'dist'  // 根目录，index.html 文件所在的目录
+      baseDir: '.'  // 根目录，index.html 文件所在的目录
     }
   });
   // less 文件一改动就重新编译成 css
-  gulp.watch('less/*.less', ['less']);
+  gulp.watch('less/*.less', ['less', 'copy']);
 
 });
 
-gulp.task('dev', ['less' , 'server']);
+// 复制资源文件
+gulp.task('copy',  function() {
+  return gulp.src('src/**/*.*')
+    .pipe(gulp.dest('dist/src'))
+});
+
+gulp.task('dev', ['less' , 'server', 'copy']);
